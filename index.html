@@ -75,6 +75,9 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;opacity:.018;backgroun
 .toggle-btn.active[data-value="Yes"]{background:var(--success);color:#fff;box-shadow:0 2px 8px rgba(61,139,94,.35);transform:scale(1.02)}
 .toggle-btn.active[data-value="No"]{background:var(--coral);color:#fff;box-shadow:0 2px 8px rgba(201,107,82,.35);transform:scale(1.02)}
 .toggle-btn.active[data-value="N/A"]{background:var(--gold);color:#fff;box-shadow:0 2px 8px rgba(201,153,74,.35);transform:scale(1.02)}
+.toggle-btn.active[data-value="Participant"],.toggle-btn.active[data-value="Authorized Representative"]{background:var(--sage);color:#fff;box-shadow:0 2px 8px rgba(107,143,113,.35);transform:scale(1.02)}
+.toggle-group[data-field="signer_type"]{display:flex;flex-wrap:wrap;max-width:100%}
+.toggle-group[data-field="signer_type"] .toggle-btn{flex:1 1 auto;text-align:center;white-space:normal}
 .toggle-group.error{box-shadow:0 0 0 2px var(--danger)}
 .conditional-field{display:none;overflow:hidden}
 /* Chips */
@@ -335,7 +338,7 @@ input[type="range"].styled-slider::-moz-range-thumb{width:28px;height:28px;borde
           <datalist id="insuranceList"><option value="Aetna"><option value="BlueCross BlueShield"><option value="CareFirst"><option value="Cigna"><option value="Humana"><option value="Kaiser Permanente"><option value="Medicaid"><option value="Medicare"><option value="United Healthcare"><option value="Tricare"><option value="Amerigroup"><option value="Anthem"><option value="Centene"><option value="Molina Healthcare"><option value="Health Net"><option value="WellCare"><option value="Oscar Health"><option value="Ambetter"><option value="Mutual of Omaha"><option value="Self-Pay"></datalist>
         </div>
         <div class="form-group"><label class="form-label" for="group_number">Group # <span class="opt-tag">(optional)</span> <span class="tooltip-icon" data-tip="Usually labeled 'Group' or 'RxGrp' on the front or back of your card.">?</span></label><input type="text" class="form-input" id="group_number" data-field="group_number" placeholder="Group #"></div>
-        <div class="form-group"><label class="form-label" for="identification_number">Member ID <span class="opt-tag">(optional)</span> <span class="tooltip-icon" data-tip="Your unique subscriber ID, often 9 to 13 characters long.">?</span></label><input type="text" class="form-input" id="identification_number" data-field="identification_number" placeholder="ID #"></div>
+        <div class="form-group"><label class="form-label" for="identification_number">Carelon Member ID <span class="req">*</span> <span class="tooltip-icon" data-tip="The member or participant ID printed on your Carelon or insurance card. Carelon needs it to close your previous authorization.">?</span></label><input type="text" class="form-input" id="identification_number" data-field="identification_number" placeholder="Member ID"><div class="field-error-msg" role="alert">Required</div></div>
       </div>
       <div class="form-group"><label class="form-label" for="social_security_number">Social Security Number <span class="req-tag">*</span> <span class="tooltip-icon" data-tip="Enter your full 9-digit Social Security Number.">?</span></label><input type="text" class="form-input" id="social_security_number" data-field="social_security_number" inputmode="numeric" pattern="[0-9]*" placeholder="XXX-XX-XXXX" maxlength="11" autocomplete="off"><div class="field-error-msg" role="alert">Must be 9 digits</div></div>
     </div>
@@ -358,7 +361,7 @@ input[type="range"].styled-slider::-moz-range-thumb{width:28px;height:28px;borde
 
 <!-- ══════ STEP 3 — All Legal (Merged) ══════ -->
 <div class="step-card" data-step="3" id="step3">
-  <div class="step-card-header"><span class="section-badge badge-B">Sections A-B-C</span><h2 class="step-title">Legal Agreements &amp; Signature</h2><p class="step-subtitle">Review and sign all consent forms in one step.</p></div>
+  <div class="step-card-header"><span class="section-badge badge-B">Sections A to E</span><h2 class="step-title">Legal Agreements &amp; Signature</h2><p class="step-subtitle">Review and sign all consent forms in one step.</p></div>
   <div class="step-card-body">
     <div class="form-section">
       <!-- Merged Legal Document Scroll -->
@@ -428,6 +431,24 @@ input[type="range"].styled-slider::-moz-range-thumb{width:28px;height:28px;borde
             <li>My health insurance may or may not cover this service; I accept financial responsibility for the service.</li>
           </ol>
           <p style="margin-top:10px"><strong>C6 — Authorization:</strong> I hereby authorize BCB Liberty Health Care to use telepsychiatry in the course of my diagnosis and treatment.</p>
+
+          <h3 style="margin-top:28px; font-size:1rem; font-weight:700; color:var(--sage); text-transform:uppercase; letter-spacing:0.05em;">D · Discharge Concern &amp; Authorization</h3>
+          <p><strong>D1 — Request:</strong> I voluntarily request to be discharged from my current Outpatient Mental Health Clinic (OMHC). I understand that my current Carelon authorization must be closed before my behavioral health services can be transferred to BCB Liberty Health Care.</p>
+          <p style="margin-top:10px"><strong>D2 — Authorization:</strong> I authorize BCB Liberty Health Care to coordinate and provide my behavioral health treatment, including psychiatric evaluation, medication management, treatment planning, care coordination, and other medically necessary mental health services.</p>
+          <p style="margin-top:10px"><strong>D3 — Acknowledgment:</strong> I understand this request and voluntarily authorize my discharge from my current OMHC provider and the transfer of my behavioral health care to BCB Liberty Health Care.</p>
+
+          <h3 style="margin-top:28px; font-size:1rem; font-weight:700; color:var(--sage); text-transform:uppercase; letter-spacing:0.05em;">E · Carelon Overlapping Authorization Attestation</h3>
+          <p><strong>Provider:</strong> BCB Liberty Health Care &middot; NPI 1518688100 &middot; TIN 88-0620378</p>
+          <p style="margin-top:10px"><strong>Purpose.</strong> Certain services are not permitted to overlap according to COMAR 10.09.80.06B. This attestation documents the participant&rsquo;s (or Authorized Representative&rsquo;s) request to receive services with the provider named above, and to discharge, end or close any conflicting or overlapping authorization(s) that prevent those services from being authorized or delivered. Questions: Carelon customer service at 1-800-888-1965, or maryland.carelonbh.com.</p>
+          <p style="margin-top:10px">By signing below, I attest and agree that:</p>
+          <ol style="margin:8px 0 0 18px;padding:0">
+            <li>I am either the participant, or the participant&rsquo;s Authorized Representative or legal guardian with legal authority to act on the participant&rsquo;s behalf.</li>
+            <li>I am requesting to receive the indicated behavioral health service(s) with the provider identified above.</li>
+            <li>I understand that certain service authorizations may not overlap, and that existing overlapping authorizations may prevent the requested services from being authorized or delivered by this provider.</li>
+            <li>I am requesting that any conflicting or overlapping authorization(s), including those associated with other providers, be discharged, ended or closed as allowed under program rules, so that services may proceed with this provider. I understand that these authorizations will be closed immediately upon submission of this document.</li>
+            <li>I understand that ending an authorization may affect the participant&rsquo;s ability to receive services under the discharged authorization(s). I have had the opportunity to ask questions about this decision and have received answers I understand.</li>
+            <li>I attest that this decision is voluntary and made without coercion.</li>
+          </ol>
         </div>
         <div class="scroll-indicator" id="masterScrollHint" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, var(--bg) 70%); color: var(--sage); padding: 25px 10px 10px; font-weight: 600; font-size: 0.9rem; pointer-events: none; text-align: center; border-radius: 0 0 12px 12px; transition: opacity 0.4s;">
           ↓ Please read and scroll to the bottom to agree
@@ -442,6 +463,19 @@ input[type="range"].styled-slider::-moz-range-thumb{width:28px;height:28px;borde
       </div>
     </div>
     <div class="form-section">
+      <div class="form-section-title">Who Is Signing</div>
+      <div class="toggle-wrapper">
+        <label class="toggle-question" id="lbl_signer_type">I am signing this form as <span class="req">*</span> <span class="tooltip-icon" data-tip="Choose &quot;The participant&quot; if you are the patient. Choose &quot;Authorized Representative&quot; if you are a parent, legal guardian, or someone with legal authority to act for the patient.">?</span></label>
+        <div class="toggle-group" data-field="signer_type" role="group"><button type="button" class="toggle-btn active" data-value="Participant">The participant (myself)</button><button type="button" class="toggle-btn" data-value="Authorized Representative">Authorized Representative / Legal Guardian</button></div>
+        <p class="form-hint" id="minorNotice" style="display:none;margin-top:10px;color:var(--coral);font-weight:600">The date of birth entered indicates the participant is under 18. A parent or legal guardian must sign this form.</p>
+        <div class="field-error-msg" role="alert">Required</div>
+      </div>
+      <div class="conditional-field" data-show-when="signer_type=Authorized Representative" style="display:none">
+        <div class="form-group"><label class="form-label" for="relationship_to_participant">Relationship to participant <span class="req">*</span></label><input type="text" class="form-input" id="relationship_to_participant" data-field="relationship_to_participant" placeholder="Parent, legal guardian, ..." autocomplete="off"><div class="field-error-msg" role="alert">Required</div></div>
+        <div class="form-group"><label class="form-label" for="representative_authority">Brief description of your authority <span class="req">*</span> <span class="tooltip-icon" data-tip="For example: parent of a minor child, court-appointed guardian, power of attorney.">?</span></label><textarea class="form-textarea" id="representative_authority" data-field="representative_authority" rows="2" placeholder="Parent of a minor child, court-appointed guardian, power of attorney..."></textarea><div class="field-error-msg" role="alert">Required</div></div>
+      </div>
+    </div>
+    <div class="form-section">
       <div class="form-section-title">Your Signature</div>
       <div class="signature-wrapper" id="sigWrapperA"><span class="signature-placeholder">Sign here</span><canvas id="sigCanvasA"></canvas>
         <div class="signature-actions"><button class="btn-clear-sig" onclick="clearSignature('A')">↺ Clear</button><span class="sig-hint">Sign with mouse or finger</span></div>
@@ -450,7 +484,7 @@ input[type="range"].styled-slider::-moz-range-thumb{width:28px;height:28px;borde
       <div class="form-group" style="margin-top:12px"><label class="form-label">Date</label><input type="text" class="form-input" id="sigDateA" readonly style="background:var(--bg);cursor:default"></div>
       <label id="legalConfirmLabel" style="display:flex;align-items:flex-start;gap:10px;margin-top:16px;cursor:not-allowed;font-size:.85rem;color:var(--t3);line-height:1.5;opacity:0.6;transition:all 0.3s">
         <input type="checkbox" id="legalConfirm" data-field="legal_confirmed" disabled style="margin-top:3px;width:20px;height:20px;accent-color:var(--sage);pointer-events:none;">
-        <span id="legalConfirmText">I confirm I have read and agree to all three sections above (Assignment of Benefits, HIPAA Notice, and Telepsychiatry Consent). <span class="req">*</span></span>
+        <span id="legalConfirmText">I confirm I have read and agree to all five sections above (Assignment of Benefits, HIPAA Notice, Telepsychiatry Consent, Discharge Concern &amp; Authorization, and the Carelon Overlapping Authorization Attestation). <span class="req">*</span></span>
       </label>
       <div class="field-error-msg" id="legalConfirmError" role="alert">Please scroll to the bottom of the terms to agree</div>
     </div>
@@ -1427,8 +1461,18 @@ input[type="range"].styled-slider::-moz-range-thumb{width:28px;height:28px;borde
   <button class="pwa-btn-close" onclick="closePWA()">&times;</button>
 </div>
 
+<script src="vendor/jspdf.umd.min.js"></script>
+<script src="documents.js"></script>
 <script>
-const CONFIG={N8N_WEBHOOK_URL:"https://n8n.srv1325858.hstgr.cloud/webhook/8443ab53-c3a0-4b97-b302-3d58aaae6e97",FORM_VERSION:"2.0",MAX_UPLOAD_SIZE_MB:5,CRISIS_LINE:"988",DEBUG_MODE:false,TOTAL_STEPS:5};
+const CONFIG={N8N_WEBHOOK_URL:"https://n8n.srv1325858.hstgr.cloud/webhook/8443ab53-c3a0-4b97-b302-3d58aaae6e97",FORM_VERSION:"2.0",MAX_UPLOAD_SIZE_MB:5,CRISIS_LINE:"988",DEBUG_MODE:false,TOTAL_STEPS:5,PROVIDER_SIG_URL:"https://n8n.srv1325858.hstgr.cloud/webhook/bcb-provider-signature"};
+// Signature du prestataire : servie une fois que Caroline Bonu a signe sur sa page
+// dediee. Tant que l'adresse est vide ou injoignable, les documents sortent avec
+// une ligne de signature vierge, ce qui est le comportement voulu au demarrage.
+window.BCB_PROVIDER_SIGNATURE="";
+(function(){if(!CONFIG.PROVIDER_SIG_URL)return;
+  fetch(CONFIG.PROVIDER_SIG_URL,{cache:"no-store"}).then(r=>r.ok?r.json():null)
+    .then(j=>{if(j&&j.signature)window.BCB_PROVIDER_SIGNATURE=j.signature;}).catch(()=>{});
+})();
 const STEP_TIMES={1:2,2:1.5,3:1,4:1.5,5:2};
 let currentStep=1,formData={},signatureData='',signaturePad=null,medCount=1,selectedReasons=[],selectedGoals=[],selectedPersonalMed=[],selectedFamilyMed=[],selectedHousehold=[];
 let savedToastTimer=null,saveDebounce=null;
@@ -1464,7 +1508,7 @@ function navigateToStep(from,to){
     next.classList.add('active');next.style.display='block';
     gsap.fromTo(next,{opacity:0,y:from<to?30:-30},{opacity:1,y:0,duration:.4,ease:'power3.out',onComplete:()=>{
       autoFocus(to);
-      if(to===3){if(!signaturePad)initSignature();else resizeSignature();setTimeout(()=>checkMasterLegalScroll(),300);}
+      if(to===3){applySignerRules();if(!signaturePad)initSignature();else resizeSignature();setTimeout(()=>checkMasterLegalScroll(),300);}
       if(to===5){if(!witnessPad)initWitnessSignature();else resizeWitnessSignature();}
     }});
     currentStep=to;updateHeader();window.scrollTo({top:0,behavior:'smooth'});
@@ -1493,6 +1537,11 @@ function syncDefaultValues(){
   document.querySelectorAll('select[data-field],input[data-field]').forEach(el=>{
     const f=el.dataset.field;
     if(f&&el.value&&!formData[f]) formData[f]=el.value;
+  });
+  // Toggle groups with a pre-selected button (e.g. signer_type = Participant)
+  document.querySelectorAll('.toggle-group[data-field]').forEach(g=>{
+    const f=g.dataset.field,act=g.querySelector('.toggle-btn.active');
+    if(f&&act&&!formData[f]) formData[f]=act.dataset.value;
   });
   // Sliders: read their default HTML value attribute
   document.querySelectorAll('input[type="range"][data-field]').forEach(el=>{
@@ -1579,6 +1628,48 @@ function handleCrisis(){
   const s=formData.suicidal_thoughts,m=formData.suicidal_method_thought,p=formData.suicidal_planned_time,i=parseInt(formData.suicidal_intensity_scale||'1');
   const crisisEl=document.getElementById('crisisAlert');
   if(s==='Yes'&&(m==='Yes'||p==='Yes'||i>=7))crisisEl.classList.add('show');else crisisEl.classList.remove('show');
+}
+
+// ═══ SIGNATAIRE : PARTICIPANT OU REPRESENTANT ═══
+// Age calcule depuis la date de naissance de l'etape 1 (format MM/DD/YYYY).
+// Renvoie null si la date est absente ou illisible.
+function patientAgeYears(){
+  const v=(formData.dateDOB||document.getElementById('dateDOB')?.value||'').trim();
+  const parts=v.split('/');
+  if(parts.length!==3) return null;
+  const m=parseInt(parts[0],10),d=parseInt(parts[1],10),y=parseInt(parts[2],10);
+  if(!m||!d||!y||y<1900||m>12||d>31) return null;
+  const t=new Date();
+  let age=t.getFullYear()-y;
+  const mm=t.getMonth()+1;
+  if(mm<m||(mm===m&&t.getDate()<d)) age--;
+  return (age>=0&&age<130)?age:null;
+}
+function participantIsMinor(){const a=patientAgeYears();return a!==null&&a<18;}
+// Un mineur ne peut pas s'autoriser lui-meme : on force le representant et on verrouille le choix.
+function applySignerRules(){
+  const grp=document.querySelector('.toggle-group[data-field="signer_type"]');
+  if(!grp) return;
+  const partBtn=grp.querySelector('[data-value="Participant"]');
+  const repBtn=grp.querySelector('[data-value="Authorized Representative"]');
+  const note=document.getElementById('minorNotice');
+  if(participantIsMinor()){
+    if(repBtn&&!repBtn.classList.contains('active')){
+      grp.querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active'));
+      repBtn.classList.add('active');
+    }
+    formData.signer_type='Authorized Representative';
+    if(partBtn){partBtn.disabled=true;partBtn.style.opacity='.4';partBtn.style.cursor='not-allowed';}
+    if(note)note.style.display='block';
+  }else{
+    if(partBtn){partBtn.disabled=false;partBtn.style.opacity='';partBtn.style.cursor='';}
+    if(note)note.style.display='none';
+    if(!formData.signer_type){
+      formData.signer_type='Participant';
+      if(partBtn)partBtn.classList.add('active');
+    }
+  }
+  handleConditional();
 }
 
 // ═══ SYMPTOMS ═══
@@ -2036,7 +2127,7 @@ function showSavedToast(){const toast=document.getElementById('savedToast');clea
 
 // ═══ VALIDATION ═══
 const REQ={1:['first_name','last_name','dateDOB','home_address','city','state','phone',{id:'sex',type:'chips_hidden'}],
-  2:[{id:'emergency_contact_name'},{id:'emergency_contact_phone'},{id:'emergency_contact_relationship',type:'chips_hidden'}],
+  2:[{id:'emergency_contact_name'},{id:'emergency_contact_phone'},{id:'emergency_contact_relationship',type:'chips_hidden'},{id:'identification_number'}],
   3:[{id:'signature',type:'sig'},{id:'legalConfirm',type:'checkbox'}],4:[{id:'suicidal_thoughts',type:'toggle'},{id:'reasonChips',type:'chips'}],
   5:[{id:'education_level'},{id:'employment_status'},{id:'relationship_status',type:'chips_hidden'},{id:'current_household',type:'chips_or_text'}]};
 function validateStep(s){
@@ -2161,6 +2252,25 @@ function validateStep(s){
           ssnErr('Invalid SSN — this number is not accepted');
         }
       }
+    }
+  }
+  if(s===3){
+    // Representant legal : relation et autorite deviennent obligatoires
+    applySignerRules();
+    if(formData.signer_type==='Authorized Representative'){
+      ['relationship_to_participant','representative_authority'].forEach(fid=>{
+        const el=document.getElementById(fid);
+        if(el&&!el.value.trim()){
+          ok=false;el.classList.add('error');shake(el);
+          if(!firstErr)firstErr=el;
+          const e=el.parentElement?.querySelector('.field-error-msg');
+          if(e)e.classList.add('show');
+        }else if(el){
+          el.classList.remove('error');
+          const e=el.parentElement?.querySelector('.field-error-msg');
+          if(e)e.classList.remove('show');
+        }
+      });
     }
   }
   if(s===4){
@@ -2314,7 +2424,43 @@ async function submitForm(){
   const btn=document.getElementById('btnSubmit'),txt=btn.querySelector('.btn-text'),spin=btn.querySelector('.btn-spinner');
   btn.disabled=true;txt.style.display='none';spin.style.display='block';
   const payload=buildPayload();
-  
+
+  // Les deux documents de discharge sont fabriques ici, deja signes, et partent
+  // tout faits. Si l'appareil n'y arrive pas, on envoie quand meme le dossier
+  // d'admission et on signale l'echec : perdre sept minutes de saisie serait pire
+  // qu'un document a refaire, mais un echec silencieux serait pire que tout.
+  try{
+    // Le fabricant recoit le payload complet, plus les images brutes : le
+    // payload, lui, a deja perdu le prefixe "data:image/...;base64,".
+    const docs=await window.construireDocumentsBCB(Object.assign({},payload,{
+      signature_image:signatureData||'',
+      witness_signature_image:witnessSignatureData||'',
+      image_insurance_front:formData.image_insurance_front||'',
+      image_insurance_back:formData.image_insurance_back||'',
+      image_government_id:formData.image_government_id||'',
+      provider_signature_image:window.BCB_PROVIDER_SIGNATURE||''
+    }));
+    payload.pdf_admission=docs.pdf_admission;
+    payload.pdf_admission_nom=docs.pdf_admission_nom;
+    payload.pdf_discharge=docs.pdf_discharge;
+    payload.pdf_discharge_nom=docs.pdf_discharge_nom;
+    payload.pdf_carelon=docs.pdf_carelon;
+    payload.pdf_carelon_nom=docs.pdf_carelon_nom;
+    payload.pdf_error='';
+    // Les photos sont desormais dans le dossier d'admission. Les envoyer une
+    // seconde fois doublerait le poids de l'envoi pour rien.
+    payload.image_insurance_front='';
+    payload.image_insurance_back='';
+    payload.image_government_id='';
+  }catch(e){
+    // En cas d'echec on garde les images brutes : c'est tout ce qui restera
+    // pour reconstituer le dossier a la main.
+    payload.pdf_admission='';payload.pdf_admission_nom='';
+    payload.pdf_discharge='';payload.pdf_discharge_nom='';
+    payload.pdf_carelon='';payload.pdf_carelon_nom='';
+    payload.pdf_error='Document build failed: '+String((e&&e.message)||e);
+  }
+
   activeSubmissionId++;
   const thisSubId = activeSubmissionId;
 
@@ -2605,7 +2751,21 @@ function buildPayload(){
   const finalPayload = {
     submitted_at: new Date().toLocaleString('en-US', {timeZone:'America/New_York', year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:true}),
     form_version: CONFIG.FORM_VERSION,
-    ...docx_vars
+    ...docx_vars,
+    // ── Discharge Concern (BCB) + attestation Carelon ──
+    carelon_member_id: formData.identification_number || '',
+    signer_type: formData.signer_type || 'Participant',
+    printed_name: fullname.trim(),
+    relationship_to_participant: formData.signer_type === 'Authorized Representative'
+      ? (formData.relationship_to_participant || '') : 'Myself',
+    representative_authority: formData.signer_type === 'Authorized Representative'
+      ? (formData.representative_authority || '') : '',
+    participant_is_minor: participantIsMinor() ? 'Yes' : 'No',
+    provider_name: 'BCB Liberty Health Care',
+    provider_npi: '1518688100',
+    provider_tin: '88-0620378',
+    provider_rep_name: 'Caroline Bonu',
+    provider_rep_title: 'APRN'
   };
   Object.keys(finalPayload).forEach(k => {
     // Strip "data:image/...;base64," prefix for images and signature
@@ -2776,6 +2936,7 @@ function _initCombosOnce(){
   if(_comboInitDone) return;
   _comboInitDone = true;
   initSearchableComboboxes();
+  try{ applySignerRules(); }catch(e){}
   // Sync alcohol unit selects → formData immediately on change
   ['alcohol_max_day_unit','alcohol_min_per_day_unit','alcohol_max_per_day_unit'].forEach(id=>{
     const sel=document.getElementById(id);

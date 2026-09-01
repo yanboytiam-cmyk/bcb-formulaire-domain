@@ -1,0 +1,6 @@
+_apercu/
+index.html.avant-discharge
+# Un export de workflow n8n contient le pinData : de vraies soumissions
+# patient, SSN et photos de piece d identite comprises. Seules les sauvegardes
+# nettoyees par restructurer_workflow.py ont le droit d entrer ici.
+n8n/workflow_*discharge.json
