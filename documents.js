@@ -151,32 +151,35 @@
       }
     }
 
+    /* L'en-tete est serre volontairement : chaque point gagne ici est un point
+       de texte gagne en bas de page, et l'attestation doit tenir en deux
+       feuilles. Elle circule agrafee chez Carelon. */
     function bandeauCarelon() {
       filetCarelon();
-      var yl = 30, larg = 150, haut = larg / CARELON.ratio;
+      var yl = 28, larg = 132, haut = larg / CARELON.ratio;
       try { doc.addImage(CARELON.logo, 'PNG', L, yl, larg, haut); } catch (e) { }
       doc.setFont('helvetica', 'bold'); doc.setFontSize(7.4);
       doc.setTextColor(SAGE[0], SAGE[1], SAGE[2]);
-      doc.text(CARELON.reference, LARG - L, yl + 14, { align: 'right' });
+      doc.text(CARELON.reference, LARG - L, yl + 12, { align: 'right' });
       doc.setFont('helvetica', 'normal'); doc.setFontSize(7.4);
       doc.setTextColor(GREY[0], GREY[1], GREY[2]);
-      doc.text(CARELON.site, LARG - L, yl + 26, { align: 'right' });
+      doc.text(CARELON.site, LARG - L, yl + 23, { align: 'right' });
 
-      etat.y = yl + haut + 26;
-      doc.setFont('times', 'bold'); doc.setFontSize(15.5);
+      etat.y = yl + haut + 20;
+      doc.setFont('times', 'bold'); doc.setFontSize(14);
       doc.setTextColor(FOREST[0], FOREST[1], FOREST[2]);
       var lg = doc.splitTextToSize(titre, UTILE);
-      for (var j = 0; j < lg.length; j++) { doc.text(lg[j], L, etat.y); etat.y += 18; }
-      etat.y += 3;
-      doc.setFont('helvetica', 'normal'); doc.setFontSize(9.4);
+      for (var j = 0; j < lg.length; j++) { doc.text(lg[j], L, etat.y); etat.y += 16; }
+      etat.y += 1;
+      doc.setFont('helvetica', 'normal'); doc.setFontSize(9);
       doc.setTextColor(GREY[0], GREY[1], GREY[2]);
       doc.text(sousTitre, L, etat.y);
-      etat.y += 14;
+      etat.y += 12;
       doc.setDrawColor(GOLD[0], GOLD[1], GOLD[2]); doc.setLineWidth(1.6);
       doc.line(L, etat.y, L + 62, etat.y);
       doc.setDrawColor(LIGNE[0], LIGNE[1], LIGNE[2]); doc.setLineWidth(0.8);
       doc.line(L + 62, etat.y, LARG - L, etat.y);
-      etat.y += 24;
+      etat.y += 20;
     }
 
     function bandeau() {
@@ -1107,7 +1110,9 @@
       nomImprime: '', sousTitre: ''
     });
 
-    p.saut();
+    /* Pas de saut force ici : l'attestation du prestataire suit celle du
+       participant. Le saut coutait une feuille entiere pour une demi-page de
+       blanc, et `place()` la reportera d'elle-meme si elle ne tient pas. */
     p.titreSection('Provider / Authorized Provider Representative Attestation', '5');
     p.paragraphe('By signing below, I attest and agree that:', { gras: true, apres: 8 });
     p.liste([
