@@ -1,192 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Provider Signature — BCB Liberty Health Care</title>
-<meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Provider Signature &mdash; BCB Liberty Health Care</title>
 <style>
-:root{
-  --forest:#2D4A3E;--sage:#6B8F71;--gold:#C9994A;--coral:#C96B52;
-  --bg:#FAF8F5;--surface:#FFF;--t1:#1C2B23;--t2:#4A6B54;--t3:#8A9E8F;
-  --border:#DDE8DF;--success:#3D8B5E;
-  --g-cta:linear-gradient(135deg,#C96B52,#C9994A);
-  --g-logo:linear-gradient(160deg,#C9994A 0%,#C96B52 35%,#6B8F71 70%,#2D4A3E 100%);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--t1);
-  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
-.card{background:var(--surface);border-radius:20px;max-width:560px;width:100%;
-  box-shadow:0 2px 8px rgba(44,73,60,.04),0 8px 32px rgba(44,73,60,.08);overflow:hidden}
-.card::before{content:'';display:block;height:3px;background:var(--g-logo)}
-.body{padding:32px 28px 28px}
-h1{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;line-height:1.2;color:var(--t1)}
-.clinic{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--sage);margin-bottom:6px}
-.lede{font-size:.9rem;color:var(--t2);line-height:1.6;margin-top:10px}
-.note{background:#EDF5EE;border-left:3px solid var(--sage);border-radius:10px;
-  padding:14px 16px;font-size:.84rem;line-height:1.6;color:var(--t2);margin-top:18px}
-label.f{display:block;font-size:.72rem;font-weight:700;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--sage);margin:22px 0 6px}
-input[type=text]{width:100%;min-height:48px;padding:12px 14px;font-size:16px;
-  font-family:inherit;color:var(--t1);background:var(--bg);border:1.5px solid var(--border);
-  border-radius:12px;outline:none;transition:border-color .2s}
-input[type=text]:focus{border-color:var(--sage)}
-.pad{position:relative;margin-top:6px;border:2px dashed var(--border);border-radius:14px;
-  background:var(--bg);height:190px;overflow:hidden;touch-action:none}
-.pad.signed{border-style:solid;border-color:var(--sage);background:var(--surface)}
-.pad canvas{display:block;width:100%;height:100%;cursor:crosshair}
-.ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--t3);pointer-events:none}
-.pad.signed .ph{display:none}
-.row{display:flex;justify-content:space-between;align-items:center;margin-top:10px;
-  font-size:.78rem;color:var(--t3)}
-.clear{background:none;border:none;color:var(--coral);font:inherit;font-size:.78rem;
-  font-weight:500;cursor:pointer;padding:4px 0}
-button.go{width:100%;margin-top:26px;min-height:54px;border:none;border-radius:14px;
-  background:var(--g-cta);color:#fff;font-family:inherit;font-size:1rem;font-weight:700;
-  cursor:pointer;transition:transform .15s,opacity .2s}
-button.go:hover{transform:translateY(-1px)}
-button.go:disabled{opacity:.5;cursor:not-allowed;transform:none}
-.msg{margin-top:14px;font-size:.85rem;line-height:1.5;display:none}
-.msg.ko{color:var(--coral);display:block}
-.done{text-align:center;padding:46px 28px;display:none}
-.done .tick{width:66px;height:66px;border-radius:50%;background:var(--success);
-  display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
-.done h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600}
-.done p{font-size:.9rem;color:var(--t2);line-height:1.6;margin-top:10px}
-.foot{border-top:1px solid var(--border);padding:14px 28px;font-size:.72rem;color:var(--t3);text-align:center}
-@media(max-width:480px){.body{padding:26px 20px 22px}h1{font-size:1.45rem}.pad{height:170px}}
+  :root{--forest:#2d4a3e;--sage:#6b8f71;--ink:#1c2b23;--paper:#f7f9f7}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+       background:var(--paper);color:var(--ink);padding:24px;
+       font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  .card{max-width:520px;background:#fff;border-radius:18px;padding:36px 32px;
+        box-shadow:0 12px 40px rgba(45,74,62,.12)}
+  h1{margin:0 0 6px;font-size:22px;color:var(--forest)}
+  p.sub{margin:0 0 22px;color:var(--sage);font-size:14px}
+  p{margin:0 0 16px}
+  a.btn{display:inline-block;margin-top:8px;padding:13px 22px;border-radius:12px;
+        background:var(--forest);color:#fff;text-decoration:none;font-weight:600}
+  .note{margin-top:22px;padding-top:18px;border-top:1px solid #e6ece7;
+        font-size:14px;color:var(--sage)}
 </style>
 </head>
 <body>
-
-<div class="card">
-  <div class="body" id="form">
-    <div class="clinic">BCB Liberty Health Care</div>
-    <h1>Provider signature</h1>
-    <p class="lede">Sign once here. Your signature is then applied automatically to every
-      Discharge Concern &amp; Authorization and Carelon Overlapping Authorization Attestation
-      produced from the patient intake form. You will not be asked to sign again.</p>
-
-    <div class="note">This signature is stored only to be reproduced on documents you have
-      authorized. It is never shown to patients and can be removed at any time by signing
-      again or by contacting your administrator.</div>
-
-    <label class="f" for="nom">Printed name</label>
-    <input type="text" id="nom" value="Caroline Bonu" autocomplete="name">
-
-    <label class="f" for="titre">Title</label>
-    <input type="text" id="titre" value="APRN" autocomplete="organization-title">
-
-    <label class="f">Your signature</label>
-    <div class="pad" id="pad">
-      <span class="ph">Sign here</span>
-      <canvas id="cv"></canvas>
-    </div>
-    <div class="row">
-      <button type="button" class="clear" id="clear">↺ Clear</button>
-      <span>Sign with mouse or finger</span>
-    </div>
-
-    <button class="go" id="go">Save my signature</button>
-    <p class="msg" id="msg"></p>
-  </div>
-
-  <div class="done" id="done">
-    <div class="tick">
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-    </div>
-    <h2>Signature saved</h2>
-    <p>From now on, every discharge document generated for a patient will carry your
-      signature. Nothing else is required from you.</p>
-  </div>
-
-  <div class="foot">Confidential — BCB Liberty Health Care</div>
-</div>
-
-<script>
-/* Adresse du webhook n8n qui range la signature. A remplir une fois le
-   workflow "BCB - Signature prestataire" cree. */
-const WEBHOOK = "https://n8n.srv1325858.hstgr.cloud/webhook/bcb-provider-signature-save";
-
-/* ── Bloc de signature ────────────────────────────────────────────────────
-   Ecrit a la main plutot que tire d'une librairie : quarante lignes, aucune
-   dependance a charger, et la page s'ouvre meme sur une connexion faible. */
-const pad = document.getElementById('pad');
-const cv = document.getElementById('cv');
-const ctx = cv.getContext('2d');
-let trace = false, vide = true, dernier = null;
-
-function dimensionner(){
-  const r = pad.getBoundingClientRect();
-  const dpr = window.devicePixelRatio || 1;
-  const sauve = vide ? null : cv.toDataURL();
-  cv.width = r.width * dpr; cv.height = r.height * dpr;
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  ctx.lineWidth = 2.4; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-  ctx.strokeStyle = '#1C2B23';
-  if (sauve){ const i = new Image(); i.onload = () => ctx.drawImage(i, 0, 0, r.width, r.height); i.src = sauve; }
-}
-function point(e){
-  const r = cv.getBoundingClientRect();
-  return { x: e.clientX - r.left, y: e.clientY - r.top };
-}
-cv.addEventListener('pointerdown', e => {
-  e.preventDefault(); cv.setPointerCapture(e.pointerId);
-  trace = true; dernier = point(e);
-  if (vide){ vide = false; pad.classList.add('signed'); }
-});
-cv.addEventListener('pointermove', e => {
-  if (!trace) return;
-  e.preventDefault();
-  const p = point(e);
-  ctx.beginPath(); ctx.moveTo(dernier.x, dernier.y); ctx.lineTo(p.x, p.y); ctx.stroke();
-  dernier = p;
-});
-['pointerup','pointercancel','pointerleave'].forEach(t =>
-  cv.addEventListener(t, () => { trace = false; }));
-document.getElementById('clear').addEventListener('click', () => {
-  ctx.clearRect(0, 0, cv.width, cv.height);
-  vide = true; pad.classList.remove('signed');
-});
-window.addEventListener('resize', dimensionner);
-dimensionner();
-
-/* ── Envoi ────────────────────────────────────────────────────────────── */
-const msg = document.getElementById('msg');
-const go = document.getElementById('go');
-
-function erreur(t){ msg.textContent = t; msg.className = 'msg ko'; }
-
-go.addEventListener('click', async () => {
-  if (vide){ erreur('Please sign in the box above before saving.'); return; }
-  const nom = document.getElementById('nom').value.trim();
-  if (!nom){ erreur('Please enter your printed name.'); return; }
-  if (!WEBHOOK){ erreur('This link is not connected yet. Please contact your administrator.'); return; }
-
-  msg.className = 'msg'; go.disabled = true; go.textContent = 'Saving...';
-  try {
-    const r = await fetch(WEBHOOK, {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        provider_signature: cv.toDataURL('image/png'),
-        provider_rep_name: nom,
-        provider_rep_title: document.getElementById('titre').value.trim(),
-        signed_at: new Date().toISOString()
-      })
-    });
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    document.getElementById('form').style.display = 'none';
-    document.getElementById('done').style.display = 'block';
-  } catch (e){
-    go.disabled = false; go.textContent = 'Save my signature';
-    erreur('The signature could not be saved. Please check your connection and try again.');
-  }
-});
-</script>
+  <main class="card">
+    <h1>This page is no longer in use</h1>
+    <p class="sub">BCB Liberty Health Care</p>
+    <p>The provider signature is now built directly into the intake form. Every
+       document a patient signs comes out already signed, with no extra step.</p>
+    <p>Nothing needs to be done here, and no signature needs to be re-entered.</p>
+    <a class="btn" href="https://bcb-liberty.yanforms.com">Open the patient form</a>
+    <p class="note">If you need the signature on file changed, please get in
+       touch rather than using this page. It has been retired.</p>
+  </main>
 </body>
 </html>
